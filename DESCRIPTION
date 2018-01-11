@@ -2,7 +2,7 @@ Package: LandscapeMetrics
 Type: Package
 Title: Calculates the landscape metrics
 Version: 0.1.0
-Date: 2016-11-26
+Date: 2017-01-11
 Author: Juliana Marchesan <marchesan.ju@hotmail.com>,
         Rudiney Soares Pereira <rudiney.s.pereira@gmail.com>
 Maintainer: Juliana Marchesan <marchesan.ju@gmail.com>
@@ -11,9 +11,10 @@ Depends:
 Imports:
     raster (>= 2.5-8),
     rgdal (>= 1.2-4),
-    rgeos (>= 0.3.2)
+    rgeos (>= 0.3.2),
+    igraph (>= 1.0.1)
 Description: The package is intended to calculate certain landscape metrics.
-License: GPL (>=2)
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
