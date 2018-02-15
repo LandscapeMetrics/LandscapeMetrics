@@ -3,7 +3,7 @@ Type: Package
 Title: Calculates the landscape metrics
 Version: 0.1.0
 Date: 2017-01-11
-Author: Juliana Marchesan <marchesan.ju@hotmail.com>,
+Author: Juliana Marchesan <marchesan.ju@gmail.com>,
         Rudiney Soares Pereira <rudiney.s.pereira@gmail.com>
 Maintainer: Juliana Marchesan <marchesan.ju@gmail.com>
 Depends:
