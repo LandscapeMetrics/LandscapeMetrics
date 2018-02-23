@@ -7,7 +7,7 @@
 #'@import raster
 #'@import rgdal
 #'@import rgeos
-#' @import igraph
+#'@import igraph
 #'@export
 CA <- function(x){
   class_forest=x==1
@@ -15,7 +15,7 @@ CA <- function(x){
   cell_fragment=freq(fragment_forest)
   cell_fragment_table=data.frame(cell_fragment)
   cell_fragment_table=cell_fragment_table[!is.na(cell_fragment_table[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   sum_area=sum(cell_fragment_table$count)
   total_area_class_ha=sum_area * area_pixel/10000
   return(total_area_class_ha)
@@ -28,7 +28,7 @@ CA <- function(x){
 #'@param x Raster of data with patches identified as classes in RasterLayer format.
 #'@return The value of the number of patches of the respective class.
 #'@references MCGARIGAL. K.; MARKS, B. J. Fragstats: Spatial pattern analysis program for quantifying landscape structure. Reference manual. Forest Science Department Oregon State University. Corvallis Oregon 1994. 60 p.
-#' @export
+#'@export
 NP <- function(x){
   class_forest=x==1
   fragment_forest=clump(class_forest)
@@ -447,7 +447,7 @@ TCAI_20 <- function(x){
   frequency_fragm_table=data.frame(frequency_fragm)
   frequency_fragm_table[is.na(frequency_fragm_table)]=0
   frequency_fragm_table[frequency_fragm_table$value==0,]=0
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   sum_area=sum(frequency_fragm_table$count)
   TCA_20=(sum_area*area_pixel/10000)
   area_class=gArea(polygons)
@@ -479,7 +479,7 @@ CASD_20 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   CASD_20=sqrt(sum((frequency_fragm[,"count"] - mean(frequency_fragm[,"count"]))^2) / (length(frequency_fragm[,"count"])))
   CASD_20=CASD_20 * area_pixel/10000
   return(CASD_20)
@@ -508,7 +508,7 @@ CACV_20 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   a=frequency_fragm[ ,"count"]
   TCA_20=(sum(a))*area_pixel/10000
   NCA_20=length(frequency_fragm[,"count"])
@@ -634,7 +634,7 @@ TCAI_40 <- function(x){
   frequency_fragm_table=data.frame(frequency_fragm)
   frequency_fragm_table[is.na(frequency_fragm_table)]=0
   frequency_fragm_table[frequency_fragm_table$value==0,]=0
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   sum_area=sum(frequency_fragm_table$count)
   TCA_40=(sum_area*area_pixel/10000)
   area_class=gArea(polygons)
@@ -666,7 +666,7 @@ CASD_40 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   CASD_40=sqrt(sum((frequency_fragm[,"count"] - mean(frequency_fragm[,"count"]))^2) / (length(frequency_fragm[,"count"])))
   CASD_40=CASD_40 * area_pixel/10000
   return(CASD_40)
@@ -695,7 +695,7 @@ CACV_40 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   a=frequency_fragm[ ,"count"]
   TCA_40=(sum(a))*area_pixel/10000
   NCA_40=length(frequency_fragm[,"count"])
@@ -821,7 +821,7 @@ TCAI_60 <- function(x){
   frequency_fragm_table=data.frame(frequency_fragm)
   frequency_fragm_table[is.na(frequency_fragm_table)]=0
   frequency_fragm_table[frequency_fragm_table$value==0,]=0
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   sum_area=sum(frequency_fragm_table$count)
   TCA_60=(sum_area*area_pixel/10000)
   area_class=gArea(polygons)
@@ -853,7 +853,7 @@ CASD_60 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   CASD_60=sqrt(sum((frequency_fragm[,"count"] - mean(frequency_fragm[,"count"]))^2) / (length(frequency_fragm[,"count"])))
   CASD_60=CASD_60 * area_pixel/10000
   return(CASD_60)
@@ -882,7 +882,7 @@ CACV_60 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   a=frequency_fragm[ ,"count"]
   TCA_60=(sum(a))*area_pixel/10000
   NCA_60=length(frequency_fragm[,"count"])
@@ -1009,7 +1009,7 @@ TCAI_80 <- function(x){
   frequency_fragm_table=data.frame(frequency_fragm)
   frequency_fragm_table[is.na(frequency_fragm_table)]=0
   frequency_fragm_table[frequency_fragm_table$value==0,]=0
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   sum_area=sum(frequency_fragm_table$count)
   TCA_80=(sum_area*area_pixel/10000)
   area_class=gArea(polygons)
@@ -1041,7 +1041,7 @@ CASD_80 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   CASD_80=sqrt(sum((frequency_fragm[,"count"] - mean(frequency_fragm[,"count"]))^2) / (length(frequency_fragm[,"count"])))
   CASD_80=CASD_80 * area_pixel/10000
   return(CASD_80)
@@ -1070,7 +1070,7 @@ CACV_80 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   a=frequency_fragm[ ,"count"]
   TCA_80=(sum(a))*area_pixel/10000
   NCA_80=length(frequency_fragm[,"count"])
@@ -1197,7 +1197,7 @@ TCAI_100 <- function(x){
   frequency_fragm_table=data.frame(frequency_fragm)
   frequency_fragm_table[is.na(frequency_fragm_table)]=0
   frequency_fragm_table[frequency_fragm_table$value==0,]=0
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   sum_area=sum(frequency_fragm_table$count)
   TCA_100=(sum_area*area_pixel/10000)
   area_class=gArea(polygons)
@@ -1229,7 +1229,7 @@ CASD_100 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   CASD_100=sqrt(sum((frequency_fragm[,"count"] - mean(frequency_fragm[,"count"]))^2) / (length(frequency_fragm[,"count"])))
   CASD_100=CASD_100 * area_pixel/10000
   return(CASD_100)
@@ -1258,7 +1258,7 @@ CACV_100 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   a=frequency_fragm[ ,"count"]
   TCA_100=(sum(a))*area_pixel/10000
   NCA_100=length(frequency_fragm[,"count"])
@@ -1385,7 +1385,7 @@ TCAI_140 <- function(x){
   frequency_fragm_table=data.frame(frequency_fragm)
   frequency_fragm_table[is.na(frequency_fragm_table)]=0
   frequency_fragm_table[frequency_fragm_table$value==0,]=0
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   sum_area=sum(frequency_fragm_table$count)
   TCA_140=(sum_area*area_pixel/10000)
   area_class=gArea(polygons)
@@ -1417,7 +1417,7 @@ CASD_140 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   CASD_140=sqrt(sum((frequency_fragm[,"count"] - mean(frequency_fragm[,"count"]))^2) / (length(frequency_fragm[,"count"])))
   CASD_140=CASD_140 * area_pixel/10000
   return(CASD_140)
@@ -1446,7 +1446,7 @@ CACV_140 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   a=frequency_fragm[ ,"count"]
   TCA_140=(sum(a))*area_pixel/10000
   NCA_140=length(frequency_fragm[,"count"])
@@ -1572,7 +1572,7 @@ TCAI_200 <- function(x){
   frequency_fragm_table=data.frame(frequency_fragm)
   frequency_fragm_table[is.na(frequency_fragm_table)]=0
   frequency_fragm_table[frequency_fragm_table$value==0,]=0
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   sum_area=sum(frequency_fragm_table$count)
   TCA_200=(sum_area*area_pixel/10000)
   area_class=gArea(polygons)
@@ -1604,7 +1604,7 @@ CASD_200 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   CASD_200=sqrt(sum((frequency_fragm[,"count"] - mean(frequency_fragm[,"count"]))^2) / (length(frequency_fragm[,"count"])))
   CASD_200=CASD_200 * area_pixel/10000
   return(CASD_200)
@@ -1633,7 +1633,7 @@ CACV_200 <- function(x){
   Fragments=clump(clip)
   frequency_fragm=freq(Fragments)
   frequency_fragm=frequency_fragm[!is.na(frequency_fragm[,1]),]
-  area_pixel=res(raster)[1] * res(raster)[2]
+  area_pixel=res(x)[1] * res(x)[2]
   a=frequency_fragm[ ,"count"]
   TCA_200=(sum(a))*area_pixel/10000
   NCA_200=length(frequency_fragm[,"count"])
