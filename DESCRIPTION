@@ -3,7 +3,7 @@ Type: Package
 Title: Calculates the landscape metrics
 Version: 0.1.0
 Date: 2018-02-23
-Authors@R: c(person("Juliana", "Marchesan", role = "aut", email = "marchesan.ju@gmail.com", person("Rudiney S.", "Pereira", role = "aut", email = "rudiney.s.pereira@gmail.com")
+Authors: c(person("Juliana", "Marchesan", role = "aut", email = "marchesan.ju@gmail.com", person("Rudiney S.", "Pereira", role = "aut", email = "rudiney.s.pereira@gmail.com")
 Maintainer: Juliana Marchesan <marchesan.ju@gmail.com>
 Depends: R (>= 3.3.0)
 Imports:raster (>= 2.5-8), rgdal (>= 1.2-4), rgeos (>= 0.3.2), igraph (>= 1.0.1)
