@@ -13,10 +13,10 @@ devtools::install_github("LandscapeMetrics/LandscapeMetrics")
 Using functions:
 library("LandscapeMetrics")
 
-#Import a raster:
+Import a raster:
 data(class)
 
-#Area calculation:
+Area calculation:
 area <- CA(class)
 
 References
