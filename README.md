@@ -11,5 +11,5 @@ library("devtools")
 
 devtools::install_github("LandscapeMetrics/LandscapeMetrics")
 
-References
+Reference:
 McGarigal, K., Marks, B. J. (1995). Fragstats: Spatial pattern analysis program for quantifying landscape structure. Portland: USDA Forest Service. Retrieved from https://fs.usda.gov/treesearch/pubs/3064
