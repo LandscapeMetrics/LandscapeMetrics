@@ -1,6 +1,6 @@
 Description:
 
-The LandscapeMetrics version package was developed in order to calculate certain landscape ecology metrics, assisting in research on forest fragmentation analysis.They were based on the methodology of McGarigal & Marks (1995).
+The LandscapeMetrics package was developed in order to calculate certain landscape ecology metrics, assisting in research on forest fragmentation analysis.They were based on the methodology of McGarigal & Marks (1995).
 
 
 Installation the LandscapeMetrics:
